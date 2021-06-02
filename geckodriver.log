@@ -56,3 +56,19 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1622614052072	Marionette	INFO	Listening on port 52906
 1622614052641	Marionette	WARN	TLS certificate errors will be ignored for this session
 1622615137354	Marionette	INFO	Stopped listening on port 52906
+1622618437794	geckodriver	INFO	Listening on 127.0.0.1:50325
+1622618440919	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\JKK\\AppData\\Local\\Temp\\rust_mozprofilerlNgrf"
+1622618459298	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1622618469647	Marionette	INFO	Listening on port 50334
+1622618470203	Marionette	WARN	TLS certificate errors will be ignored for this session
+1622618492381	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://marionette/content/sync.js:237:19
+TimedPromise@chrome://marionette/content/sync.js:222:10
+interaction.flushEventLoop@chrome://marionette/content/interaction.js:431:10
+webdriverClickElement@chrome://marionette/content/interaction.js:179:31
+JavaScript error: https://w.usabilla.com/cc8d933d9b35.js?lv=1, line 1: TypeError: h is undefined
+1622618528561	Marionette	INFO	Stopped listening on port 50334
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
