@@ -30,8 +30,30 @@ class Test_002_Create_Survey:
         self.csur.setSurveyName("C")
         self.csur.setSurveyCategory()
         self.csur.clickOnCreate()
-        self.logger.info("************* Saving  info **********")
+        self.logger.info("******* Ending Create Survey test **********")
+        self.logger.info("************* ADD PAGE TITLE **********")
 
+        self.csur.AddPageTitle()
+        self.csur.setPageTitle('Welcome !!')
+        self.csur.setPageDesc('trying to automate my first website...! excited n confused....!!!!')
+        self.csur.savePageTitle()
+
+        self.logger.info("************* Page Title successfully added **********")
+
+        self.logger.info("************* Add question  **********")
+        self.csur.setQuestion("Enter your email.")
+        self.logger.info("*************  added **********")
+        # self.csur.chooseAnswerType()
+        # self.csur.selectAnswer()
+        self.csur.SaveQuesAns()
+        self.logger.info("************* First question added **********")
+        self.logger.info("*************  NEXT QUESTION CLICK  **********")
+        # self.csur.nextQuest()
+        # self.csur.setQuestion("How often do you use SurveyMonkey?")
+        # self.csur.radio_value("Regularly")
+        # self.csur.SaveQuesAns()
+
+        self.driver.close()
         # act_title = self.driver.title
         #
         # if act_title == "SurveyMonkey Design : C":
