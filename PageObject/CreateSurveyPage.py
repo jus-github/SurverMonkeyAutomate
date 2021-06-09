@@ -71,13 +71,19 @@ class Create:
 
     def setQuestion(self , question):
         self.driver.implicitly_wait(10)
-        l=self.driver.find_element_by_xpath(self.add_ques_xpath)
+        l=WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, self.add_ques_xpath)))
+
+        # l=self.driver.find_element_by_xpath(self.add_ques_xpath)
         self.driver.execute_script("window.scrollBy(0,500)" ,"")
         # self.driver.execute_script("arguments[0].scrollIntoView(true);", l)
         l.send_keys(question)
 
     def chooseAnswerType(self):
-        self.driver.find_element_by_xpath("//span[@class = 'changeQTypeContainer']/a").click()
+        WebDriverWait(self.driver, 15).until(
+            EC.element_to_be_clickable((By.XPATH,"//a[@id='changeQType']/span[2]"))).click()
+
+        print("Clicked ... .. ")
 
     def selectAnswer(self):
         self.driver.find_element_by_xpath(self.select_Xpath).click()
@@ -89,60 +95,79 @@ class Create:
         print(" QUESTION ADDED .....!!!!!!!!")
 
 
-        # l=self.driver.find_element_by_xpath(self.save_ques_ans_xpath)
-        # # l.click()
-        # try:
-        #     l.click()
-        # except exceptions.StaleElementReferenceException as e:
-        #     print(e)
-
 
     def nextQuest(self):
         self.driver.implicitly_wait(10)
-        self.driver.find_element_by_xpath(self.next_ques_xpath).click()
-        time.sleep(7)
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, self.next_ques_xpath))).click()
+
+        # self.driver.find_element_by_xpath(self.next_ques_xpath).click()
+        time.sleep(3)
         print("NEXT QUESTION CLICK ...!!!!")
 
 
-
-        def Checkbox(self,value):
-            wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+    def checkbox_value(self,value1 , value2 ,value3, value4 , value5):
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
                                  ignored_exceptions=[NoSuchElementException,
                                                      ElementNotVisibleException,
                                                      ElementNotSelectableException])
-            element = wait.until(EC.element_to_be_clickable((By.XPATH,
-                                                             "//div[@class='rte input mce-content-body mce-edit-focus']")))
-            element.click()
-
-            WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
-                (By.XPATH, "//div[@class='rte input mce-content-body mce-edit-focus']"))).send_keys(value)
-
-            #  *****************************  2 checkbox ***************************************
-            wait = WebDriverWait(self.driver, 10, poll_frequency=1,
-                                 ignored_exceptions=[NoSuchElementException,
-                                                     ElementNotVisibleException,
-                                                     ElementNotSelectableException])
-            element = wait.until(EC.element_to_be_clickable((By.XPATH,
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
                                                              "//td[@class='choiceText']/div[@class='rteToolbarContainer empty']/span")))
-            element.click()
-            WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
-                (By.XPATH, "//div[@class='rte input mce-content-body']"))).send_keys(value)
+        element.click()
 
-            #  *****************************  3 checkbox ***************************************
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+                (By.XPATH, "//div[@class='rte input mce-content-body mce-edit-focus']"))).send_keys(value1)
+        time.sleep(5)
 
-            wait = WebDriverWait(self.driver, 10, poll_frequency=1,
-                                 ignored_exceptions=[NoSuchElementException,
-                                                     ElementNotVisibleException,
-                                                     ElementNotSelectableException])
-            element = wait.until(EC.element_to_be_clickable((By.XPATH,
-                                                             "//tbody[@class ='answerSetting singleLine']/tr[6]/td[2]/div/span")))
-            element.click()
-            WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
-                (By.XPATH, "//tbody/tr[6]/td[2]/div/div[1]"))).send_keys(value)
-            self.driver.execute_script("window.scrollBy(0,500)", "")
+        # self.driver.execute_script("window.scrollBy(0,500)", "")
+        #     #  *****************************  2 checkbox ***************************************
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//td[@class='choiceText']/div[@class='rteToolbarContainer empty']/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//div[@class='rte input mce-content-body mce-edit-focus']"))).send_keys(value2)
+        #
+        # #  *****************************  3 checkbox ***************************************
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody[@class ='answerSetting singleLine']/tr[6]/td[2]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[6]/td[2]/div/div[1]"))).send_keys(value3)
+
+        time.sleep(4)
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody[@class ='answerSetting singleLine']/tr[7]/td[2]/div/span")))
+        element.click()
+
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[7]/td[2]/div/div[1]"))).send_keys(value4)
+        time.sleep(5)
 
 
-            time.sleep(3)
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody[@class ='answerSetting singleLine']/tr[8]/td[2]/div/span")))
+        element.click()
+
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[8]/td[2]/div/div[1]"))).send_keys(value5)
+
+        time.sleep(3)
 
 
 
@@ -170,21 +195,13 @@ class Create:
         # print(" QUESTION ADDED .....!!!!!!!!")
 
     def select_Date(self):
+        self.driver.implicitly_wait(10)
         button = self.driver.find_element_by_xpath("//a[@id='changeQType']/span[2]")
         self.driver.execute_script("arguments[0].click();", button)
-        WebDriverWait(self.driver, 15).until(EC.element_to_be_clickable(
-            (By.XPATH, self.ans_icon_xpath))).click()
-        # self.driver.find_element_by_xpath(self.date_xpath).click()
+        # WebDriverWait(self.driver, 15).until(EC.element_to_be_clickable(
+        #     (By.XPATH, self.ans_icon_xpath))).click()
+
         WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
-            (By.XPATH, "//a[@data-action = 'DateTimeQuestion']"))).click()
+            (By.XPATH, "//*[@id='create']/ul/li/ul[2]/li[7]/div/a"))).click()
+        print("  ADDED .....!!!!!!!!")
         self.driver.execute_script("window.scrollBy(0,500)", "")
-
-
-    # def yes_NO_radio(self):
-    #     self.driver.implicitly_wait(20)
-    #     element = WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
-    #         (By.XPATH, "//div[@class='answer-bank-label']/a[@id='addAllOptions']"))).click()
-    #
-    #     # element = self.driver.find_element_by_id(self.radio_select_id).click()
-    #
-    #     print("select Yes - No ....!")
