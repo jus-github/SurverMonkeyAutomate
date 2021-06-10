@@ -33,14 +33,21 @@ class Test_002_Create_Survey:
         self.logger.info("******* Ending Create Survey test **********")
         self.logger.info("************* ADD PAGE TITLE **********")
 
-        # self.csur.AddPageTitle()
-        # self.csur.setPageTitle('Welcome !!')
-        # self.csur.setPageDesc('trying to automate my first website...! excited n confused....!!!!')
-        # self.csur.savePageTitle()
+        self.csur.AddPageTitle()
+        self.csur.setPageTitle('Welcome !!')
+        self.csur.setPageDesc('trying to automate my first website. Excited!!HURRAYY!!')
+        self.csur.savePageTitle()
 
         self.logger.info("************* Page Title successfully added **********")
 
         self.logger.info("************* Add question  **********")
+        #
+        # self.csur.nextQuest()
+        self.csur.setQuestion("List the features you like most.")
+        self.csur.multiple_text_box("1", "2")
+        self.csur.SaveQuesAns()
+
+        self.csur.nextQuest()
         self.csur.setQuestion("Enter your email.")
         self.logger.info("*************  added **********")
         # self.csur.chooseAnswerType()
@@ -52,37 +59,32 @@ class Test_002_Create_Survey:
 
 
         # *************  2 Question ****************************
+        #
+        #
+        #
+        self.csur.nextQuest()
+        self.csur.setQuestion("Will recommend SurveyMonkey to your friends / Colleagues? (Radio)")
+        self.csur.radio_value("YES")
+        self.csur.SaveQuesAns()
+
+        self.csur.nextQuest()
+        self.csur.setQuestion("Comments / Feedback")
+        self.csur.SaveQuesAns()
+
+        self.csur.nextQuest()
+        self.csur.setQuestion("Did you get meaningful data from survey analysis ?")
+        self.csur.dropdown("Yes" ,"No")
+        self.csur.SaveQuesAns()
+
         self.csur.nextQuest()
         self.csur.setQuestion("From When are you using SurveyMonkey?")
         self.csur.select_Date()
         self.csur.SaveQuesAns()
 
-        #
-        #
-        # self.csur.nextQuest()
-        # self.csur.setQuestion("Will recommend SurveyMonkey to your friends / Colleagues? (Radio)")
-        # self.csur.radio_value("YES")
-        # self.csur.SaveQuesAns()
-        #
-        # self.csur.nextQuest()
-        # self.csur.setQuestion("Comments / Feedback")
-        # self.csur.SaveQuesAns()
-        #
-        # self.csur.nextQuest()
-        # self.csur.setQuestion("Did you get meaningful data from survey analysis ?")
-        # self.csur.radio_value("YES")
-        # self.csur.SaveQuesAns()
-        #
-        # self.csur.nextQuest()
-        # self.csur.setQuestion("How will rate the ease of survey creation?")
-        # self.csur.SaveQuesAns()
-        #
-        #
-        #
-        # self.csur.nextQuest()
-        # self.csur.setQuestion("How often do you use SurveyMonkey ?")
-        # self.csur.radio_value("Regularly")
-        # self.csur.SaveQuesAns()
+        self.csur.nextQuest()
+        self.csur.setQuestion("How will rate the ease of survey creation?")
+        self.csur.SaveQuesAns()
+
 
         # *************  3 Question ****************************
 
@@ -90,13 +92,17 @@ class Test_002_Create_Survey:
         self.csur.setQuestion("Check the Features you like about SurveyMonkey?")
         self.csur.checkbox_value("Question Bank" , "Themes" , "Graphical Result" , "Template Re-usability" , "Collectors")
         self.csur.SaveQuesAns()
-
-
-        # *************  4 Question ****************************
-
-
+        #
+        #
+        # # *************  4 Question ****************************
+        self.csur.nextQuest()
+        self.csur.setQuestion("How often do you use SurveyMonkey ?")
+        self.csur.multiple_radio_value("Regularly", "Sometimes", "Never Tried")
+        self.csur.SaveQuesAns()
 
         # *************  5 Question ****************************
+
+
 
 
 
@@ -105,17 +111,13 @@ class Test_002_Create_Survey:
 
 
      # *************  7 Question ****************************
-     #    self.csur.nextQuest()
-     #    self.csur.setQuestion("List the features you like most.")
-     #
-     #    self.csur.SaveQuesAns()
 
-           # *************  8 Question ****************************
+      # *************  8 Question ****************************
 
-        # self.csur.nextQuest()
-        # self.csur.setQuestion("Rate our features. (Matrix Rating Scale)")
-        #
-        # self.csur.SaveQuesAns()
+        self.csur.nextQuest()
+        self.csur.setQuestion("Rate our features. (Matrix Rating Scale)")
+        self.csur.matrix("Service","Support","Responses","Very Good","Good","Average","Below Average")
+        self.csur.SaveQuesAns()
 
 
     # *************  9 Question ****************************

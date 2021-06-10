@@ -143,6 +143,7 @@ class Create:
             (By.XPATH, "//tbody/tr[6]/td[2]/div/div[1]"))).send_keys(value3)
 
         time.sleep(4)
+
         wait = WebDriverWait(self.driver, 10, poll_frequency=1,
                              ignored_exceptions=[NoSuchElementException,
                                                  ElementNotVisibleException,
@@ -170,7 +171,69 @@ class Create:
         time.sleep(3)
 
 
+    def multiple_text_box(self, value1 , value2):
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody/tr[3]/td[1]/div/span")))
+        element.click()
 
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody[@class='answerSettingTextboxes']/tr[3]/td[1]/div/div[1]"))).send_keys(value1)
+        time.sleep(5)
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody/tr[4]/td[1]/div/span")))
+        element.click()
+
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody[@class='answerSettingTextboxes']/tr[4]/td[1]/div/div[1]"))).send_keys(value2)
+        time.sleep(5)
+        # self.driver.find_element_by_xpath("//tbody[@class='answerSettingTextboxes']/tr[3]/td[1]/div/div[1]").click()
+
+
+    def multiple_radio_value(self , value1 , value2 , value3):
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody/tr[4]/td[2]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[4]/td[2]/div/div[1]"))).send_keys(value1)
+
+        time.sleep(4)
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody/tr[5]/td[2]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[5]/td[2]/div/div[1]"))).send_keys(value2)
+
+        time.sleep(4)
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody/tr[6]/td[2]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[6]/td[2]/div/div[1]"))).send_keys(value3)
+
+        time.sleep(4)
 
 
     def radio_value(self , value):
@@ -205,3 +268,133 @@ class Create:
             (By.XPATH, "//*[@id='create']/ul/li/ul[2]/li[7]/div/a"))).click()
         print("  ADDED .....!!!!!!!!")
         self.driver.execute_script("window.scrollBy(0,500)", "")
+
+
+    def matrix(self , value1 , value2,value3 ,value4,value5,value6,value7):
+
+        # SERVICE
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody[@class='answerSettingMatrix singleLine']/tr[3]/td[1]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody[@class='answerSettingMatrix singleLine']/tr[3]/td[1]/div/div[1]"))).send_keys(value1)
+
+        time.sleep(4)
+
+        # SUPPORT
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody[@class='answerSettingMatrix singleLine']/tr[4]/td[1]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody[@class='answerSettingMatrix singleLine']/tr[4]/td[1]/div/div[1]"))).send_keys(value2)
+
+        time.sleep(4)
+
+        # RESPONSIVENESS ...
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//tbody[@class='answerSettingMatrix singleLine']/tr[5]/td[1]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody[@class='answerSettingMatrix singleLine']/tr[5]/td[1]/div/div[1]"))).send_keys(value3)
+
+        time.sleep(4)
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//*[@id='columnsWrap']/div/table/tbody/tr[2]/td[1]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[2]/td[1]/div/div[@class='rte input mce-content-body mce-edit-focus']"))).send_keys(value4)
+
+        time.sleep(4)
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//*[@id='columnsWrap']/div/table/tbody/tr[3]/td[1]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[3]/td[1]/div/div[@class='rte input mce-content-body mce-edit-focus']"))).send_keys(
+            value5)
+
+        time.sleep(4)
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//*[@id='columnsWrap']/div/table/tbody/tr[4]/td[1]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[4]/td[1]/div/div[@class='rte input mce-content-body mce-edit-focus']"))).send_keys(
+            value6)
+
+        time.sleep(4)
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//*[@id='columnsWrap']/div/table/tbody/tr[5]/td[1]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[5]/td[1]/div/div[@class='rte input mce-content-body mce-edit-focus']"))).send_keys(
+            value7)
+
+        time.sleep(4)
+
+
+
+    def dropdown(self , value1 , value2):
+        self.driver.implicitly_wait(10)
+        button = self.driver.find_element_by_xpath("//a[@id='changeQType']/span[2]")
+        self.driver.execute_script("arguments[0].click();", button)
+
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//*[@id='create']/ul/li/ul[2]/li[1]/div/a"))).click()
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//*[@id='rows']/tbody/tr[4]/td[2]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[4]/td[2]/div/div[1]"))).send_keys(
+            value1)
+
+        time.sleep(4)
+
+        wait = WebDriverWait(self.driver, 10, poll_frequency=1,
+                             ignored_exceptions=[NoSuchElementException,
+                                                 ElementNotVisibleException,
+                                                 ElementNotSelectableException])
+        element = wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                         "//*[@id='rows']/tbody/tr[5]/td[2]/div/span")))
+        element.click()
+        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(
+            (By.XPATH, "//tbody/tr[5]/td[2]/div/div[1]"))).send_keys(
+            value2)
+
+        time.sleep(4)
