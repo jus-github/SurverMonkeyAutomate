@@ -33,9 +33,7 @@ class LoginTest(unittest.TestCase):
             self.driver.close()
             assert False
 
-        # self.driver.find_element_by_id("welcome").click()
-        #
-        # self.driver.find_element_by_link_text("Logout").click()
+
 
 
     @classmethod

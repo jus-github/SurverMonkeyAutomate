@@ -1,15 +1,16 @@
 from selenium import webdriver
 from  PageObject.Login import Login
-from Utilities.customLogger import LogGen
+# from Utilities.customLogger import LogGen
 from Utilities.readProperty import ReadConfig
-
+import Utilities.customLogger as cl
+import logging
 
 class Test_001_Login:
     baseUrl= ReadConfig.getApplicationURL()
     username=ReadConfig.getUsereName()
     password=ReadConfig.getPassword()
 
-    logger = LogGen.loggen()
+    logger = cl.customLogger(logging.DEBUG)
 
     def test_Login(self , setup):
         # self.driver = webdriver.Chrome(executable_path="D:\\Selenium_Assignment1\\drivers\\chromedriver.exe")

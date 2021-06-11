@@ -1,14 +1,17 @@
 import  pytest
 from PageObject.CreateSurveyPage import Create
 from PageObject.Login import Login
-from Utilities.customLogger import LogGen
+# from Utilities.customLogger import LogGen
 from Utilities.readProperty import ReadConfig
+import Utilities.customLogger as cl
+import  logging
+
 
 class Test_002_Create_Survey:
     baseUrl = ReadConfig.getApplicationURL()
     username = ReadConfig.getUsereName()
     password = ReadConfig.getPassword()
-    logger = LogGen.loggen()
+    logger = cl.customLogger(logging.DEBUG)
 
     def test_create_survey(self,setup):
         self.logger.info("************* Test_002_Create New Survey  **********")
@@ -42,12 +45,9 @@ class Test_002_Create_Survey:
 
         self.logger.info("************* Add question  **********")
         #
-        # self.csur.nextQuest()
-        self.csur.setQuestion("List the features you like most.")
-        self.csur.multiple_text_box("1", "2")
-        self.csur.SaveQuesAns()
 
-        self.csur.nextQuest()
+
+        # self.csur.nextQuest()
         self.csur.setQuestion("Enter your email.")
         self.logger.info("*************  added **********")
         # self.csur.chooseAnswerType()
@@ -56,7 +56,10 @@ class Test_002_Create_Survey:
         self.logger.info("************* First question added **********")
         self.logger.info("*************  NEXT QUESTION CLICK  **********")
 
-
+        self.csur.nextQuest()
+        self.csur.setQuestion("List the features you like most.")
+        self.csur.multiple_text_box("1", "2")
+        self.csur.SaveQuesAns()
 
         # *************  2 Question ****************************
         #

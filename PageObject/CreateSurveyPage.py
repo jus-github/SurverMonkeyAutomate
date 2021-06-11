@@ -93,6 +93,7 @@ class Create:
 
         WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located((By.XPATH, "//div[@class ='editor-buttons']//a[contains(@class , 'save')]"))).click()
         print(" QUESTION ADDED .....!!!!!!!!")
+        time.sleep(5)
 
 
 
